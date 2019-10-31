@@ -1,0 +1,27 @@
+digraph G{
+    node [shape="record"]
+    
+    客户端 [shape=""]
+
+    subgraph cluster_server{
+        style="dotted,rounded"
+        label="服务端"
+        labeljust=l
+        subgraph cluster_node1{
+            style=""
+            label="应用实例"
+            thread1[label="线程"]
+            thread2[label="线程"]
+        }
+        subgraph cluster_node2{
+            style=""
+            label="应用实例"
+            thread3[label="线程"]
+            thread4[label="线程"]
+        }
+    }
+
+    数据库[shape="cylinder"]
+    客户端 ->thread1,thread2,thread3,thread4
+    thread1,thread2,thread3,thread4->数据库
+}
